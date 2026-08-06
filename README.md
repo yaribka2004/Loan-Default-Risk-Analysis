@@ -64,7 +64,7 @@ Correlation analysis revealed a strong negative correlation between **Credit Sco
 
 ---
 
-## 📊 Risk Matrix & Correlation Heatmap
+## Risk Matrix & Correlation Heatmap
 
 ### Risk Matrix: Default Rate (%) by Credit Score & DTI
 
