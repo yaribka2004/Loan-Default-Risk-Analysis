@@ -6,8 +6,11 @@ SELECT
     b.borrower_id,
     b.annual_income,
     b.credit_score
-FROM loans l
-JOIN borrowers b ON l.borrower_id = b.borrower_id
+FROM 
+	loans l
+JOIN 
+	borrowers b 
+	ON l.borrower_id = b.borrower_id
 LIMIT 5;
 
 SELECT 
@@ -44,3 +47,18 @@ GROUP BY
 	b.employment_status
 ORDER BY 
 	default_rate_pct DESC;
+
+SELECT 
+    loan_purpose,
+    ROUND(AVG(CASE 
+				WHEN defaulted = 1 
+				THEN loan_amount 
+			  END), 2) AS avg_defaulted_amount,
+    ROUND(AVG(CASE 
+				WHEN defaulted = 0 
+				THEN loan_amount 
+			  END), 2) AS avg_non_defaulted_amount
+FROM 
+	loans
+GROUP BY 
+	loan_purpose;
